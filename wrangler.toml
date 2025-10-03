@@ -1,3 +1,6 @@
 name = "k2k-garner-faq"
 compatibility_date = "2024-09-26"
-pages_build_output_dir = "./dist"
+main = "src/index.js"
+
+[site]
+bucket = "./dist"
