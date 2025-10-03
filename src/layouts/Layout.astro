@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Kid to Kid Garner - Your local children\'s resale store in Garner, NC' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-white">
+    <Navigation />
+    <main>
+      <slot />
+    </main>
+    <footer class="bg-charcoal text-white mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-semibold text-lg mb-4">Kid to Kid Garner</h3>
+            <p class="text-gray-300">2690 Timber Drive<br />Garner, NC 27529</p>
+            <p class="text-gray-300 mt-2">Phone: <a href="tel:919-322-2445" class="hover:text-k2k-green">919-322-2445</a></p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4">Store Hours</h3>
+            <p class="text-gray-300">Mon-Sat: 10am - 7pm<br />Sunday: 10am - 3pm</p>
+            <h4 class="font-semibold mt-4 mb-2">Buying Hours</h4>
+            <p class="text-gray-300">M/W/F: 10am - 2pm<br />T/Th/Sat: 10am - 6pm</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="/how-to-sell" class="text-gray-300 hover:text-k2k-green">How to Sell</a></li>
+              <li><a href="/location" class="text-gray-300 hover:text-k2k-green">Location</a></li>
+              <li><a href="/contact" class="text-gray-300 hover:text-k2k-green">Contact</a></li>
+              <li><a href="https://kidtokid.com/garner" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-k2k-green">Official Store Page</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+          <p>&copy; {new Date().getFullYear()} Kid to Kid Garner. Part of the Kid to Kid franchise.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
